@@ -4,15 +4,14 @@
     <bookmark url="file://$PROJECT_DIR$/simple-chat/src/components/FormUsername.js" line="5" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="568d2090-4ebd-49e2-89d5-2cfc2078324a" name="Default Changelist" comment="redux init">
+    <list default="true" id="568d2090-4ebd-49e2-89d5-2cfc2078324a" name="Default Changelist" comment="styles fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/actions/ChatActions.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ChatRooms.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatRooms.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/FormUsername.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/FormUsername.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/MessagesTimeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/MessagesTimeline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/TabModalAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/TabModalAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/UserList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/UserList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/reducers/ChatReducer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/reducers/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/configurateStore.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="mobx-workshop" />
+        <entry key="$PROJECT_DIR$" value="redux-chat" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -228,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670047019468</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="styles fixes">
+      <created>1670056495138</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670056495138</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -308,7 +314,8 @@
     <MESSAGE value="mobx init: add styles" />
     <MESSAGE value="redux init" />
     <MESSAGE value="remove store" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove store" />
+    <MESSAGE value="styles fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="styles fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

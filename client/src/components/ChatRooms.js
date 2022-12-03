@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Tabs } from 'antd';
+
 import Room from './Room';
-import {
-  addMsgToRoomAction,
-  addRoomAction,
-  addUsersToRoomAction,
-  clearRooms,
-} from 'actions/ChatActions';
 import TabModalAction from 'containers/TabModalAction';
+
 const { TabPane } = Tabs;
 
 const ChatRooms = ({rooms, socket, history, userName, room, addMessageToRoom, addUsersToRoom, clearRooms, addRoom}) => {
@@ -43,19 +38,19 @@ const ChatRooms = ({rooms, socket, history, userName, room, addMessageToRoom, ad
     });
   },[]);
 
-  const sendMsg = (values, roomName) => {
+  const sendMsg = useCallback((values, roomName) => {
     socket.emit('send_new_msg', {msg: values.inputMsg, roomName: roomName});
-  };
+  }, []);
 
-  const onChange = activeKey => {
+  const onChange = useCallback((activeKey) => {
     setActiveKey(activeKey)
-  };
+  }, []);
 
-  const onEdit = (targetKey, action) => {
+  const onEdit = useCallback((targetKey, action) => {
     if(action === 'remove') {
       socket.emit('close_room', targetKey);
     }
-  };
+  }, []);
 
   return (
     <div>
@@ -78,24 +73,4 @@ const ChatRooms = ({rooms, socket, history, userName, room, addMessageToRoom, ad
   )
 };
 
-const mapStateToProps = store => {
-  return {
-    userName: store.chat.userName,
-    socket: store.chat.socket,
-    rooms: store.chat.rooms
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    addRoom: room => dispatch(addRoomAction(room)),
-    addUsersToRoom: (users, roomName) => dispatch(addUsersToRoomAction(users, roomName)),
-    addMessageToRoom: (msg, roomName) => dispatch(addMsgToRoomAction(msg, roomName)),
-    clearRooms: () => dispatch(clearRooms())
-  }
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ChatRooms);
+export default ChatRooms;
