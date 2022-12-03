@@ -1,0 +1,109 @@
+@import 'src/styles';
+
+.Wrapper {
+  .Landscape {
+    display: none;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include landscape {
+    .Container {
+      display: none;
+    }
+
+    .Landscape {
+      display: flex;
+    }
+  }
+}
+
+.Tabs {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+}
+
+.ParticipantsCount {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  gap: 5px;
+  transition: opacity 2s;
+  opacity: 1;
+  font-size: 15px;
+
+  p {
+    margin: auto;
+  }
+
+  svg {
+    width: calc(2vw + 1rem);
+    height: calc(2vw + 1rem);
+
+    @include small-tablet {
+      width: calc(1vw + 2rem);
+      height: calc(1vw + 2rem);
+    }
+  }
+}
+
+.LogoutGame {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  svg {
+    width: calc(2vw + 1rem);
+    height: calc(2vw + 1rem);
+
+    @include small-tablet {
+      width: calc(1vw + 2rem);
+      height: calc(1vw + 2rem);
+    }
+  }
+}
+
+.NoneContent {
+  opacity: 0;
+}
+
+.Container {
+  padding: 12% 10px;
+  height: 100%;
+  text-align: center;
+
+  @include mobile {
+    padding: 60px 10px;
+  }
+}
+
+.TextModal {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-40%, -50%);
+  background-color: $color-white;
+  padding: 20px;
+}
+
+.Buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+.Modal {
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 30px;
+}

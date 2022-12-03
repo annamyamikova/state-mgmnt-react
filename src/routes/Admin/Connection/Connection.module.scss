@@ -1,0 +1,11 @@
+.Wrapper {
+  h1 {
+    padding-top: 0 !important;
+  }
+}
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

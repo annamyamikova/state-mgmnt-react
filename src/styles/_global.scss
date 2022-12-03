@@ -1,0 +1,216 @@
+@import "variables";
+@import "breakpoints";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-size: 10px;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: $typography-font-family, Sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+strong {
+  font-weight: $typography-accent-font-weight;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+h1 {
+  color: $color-black-text;
+  font-size: $typography-h1-font-size;
+  font-weight: $typography-title-font-weight;
+  line-height: $typography-h1-line-height;
+  margin-bottom: 10px;
+  padding: 0;
+
+  @include small-tablet {
+   font-size: $typography-mb-h1-font-size;
+  }
+
+  @include small-mobile {
+    line-height: 25px;
+  }
+}
+
+h2 {
+  color: $color-black-text;
+  font-size: $typography-h2-font-size;
+  font-weight: $typography-title-font-weight;
+
+  @include small-tablet {
+    font-size: $typography-mb-h2-font-size;
+  }
+}
+
+h3 {
+  color: $color-black-text;
+  font-size: $typography-h3-font-size;
+  font-weight: $typography-subtitle-font-weight;
+
+  @include small-tablet {
+    font-size: $typography-mb-h3-font-size;
+  }
+}
+
+h4 {
+  color: $color-blue;
+  font-size: $typography-h4-font-size;
+  font-weight: $typography-primary-font-weight;
+
+  @include small-tablet {
+    font-size: $typography-mb-h4-font-size;
+  }
+}
+
+h5 {
+  color: $color-subtitle;
+  font-size: $typography-accent-font-size;
+  font-weight: $typography-accent-font-weight;
+
+  @include small-tablet {
+    font-size: 18px;
+  }
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+  overflow-wrap: break-word;
+  color: $color-black-text;
+  font-size: $typography-text-font-size;
+  font-weight: $typography-text-font-weight;
+
+  @include small-tablet {
+    font-size: $typography-mb-text-font-size;
+  }
+
+  @include orientation-mobile-height {
+    font-size: $typography-below-mb-text-font-size;
+  }
+}
+
+span, th, td {
+  font-size: $typography-text-font-size !important;
+
+  @include small-tablet {
+    font-size: $typography-mb-text-font-size !important;
+  }
+
+  @include orientation-mobile-height {
+    font-size: $typography-below-mb-text-font-size !important;
+  }
+}
+
+table {
+  svg {
+    width: calc(2vw + 1rem) !important;
+    height: calc(2vw + 1rem) !important;
+
+    @include small-tablet {
+      width: calc(1vw + 2rem) !important;
+      height: calc(1vw + 2rem) !important;
+    }
+  }
+}
+
+a {
+  font-weight: $typography-text-font-weight;
+  color: $color-white;
+  fill: $color-white;
+  font-size: 1.2rem !important;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  color: $color-black-text;
+  font-size: $typography-text-font-size;
+  font-weight: $typography-text-font-weight;
+  padding-bottom: 5px;
+  margin-left: 30px;
+
+  p {
+    display: inline;
+  }
+
+  &::before {
+    content: "";
+    background-color: $color-blue;
+    display: inline-block;
+    margin: 2px 15px 2px -30px;
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+  }
+}
+
+input, select, textarea {
+  font-family: $typography-font-family, Sans-serif;
+  font-size: $typography-text-font-size;
+  font-weight: $typography-text-font-weight;
+}
+
+button {
+  font-size: 1.5rem !important;
+  font-weight: $typography-primary-font-weight;
+  font-family: $typography-font-family, Sans-serif;
+  background-color: $color-blue;
+  color: $color-white;
+  border: 2px solid $color-blue;
+  border-radius: 15px;
+  padding: 12px 39px;
+  margin: auto;
+  cursor: pointer;
+  transition: all .3s;
+
+  &:hover {
+    background-color: white;
+    color: $color-blue;
+
+    a {
+      color: $color-blue;
+    }
+  }
+
+  @include tablet {
+    font-size: 20px;
+  }
+
+  @include small-tablet {
+    padding: 8px 34px;
+    border-radius: 9px;
+  }
+}
+
+button > a {
+  font-weight: 300 !important;
+}
+
+textarea {
+  resize: vertical;
+}
+
+#root {
+  height: 100%;
+}
+
+input {
+  font-size: calc(1vw + 1rem) !important;
+}
+

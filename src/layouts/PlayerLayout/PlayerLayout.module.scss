@@ -1,0 +1,93 @@
+@import 'src/styles';
+
+.Wrapper {
+  .Landscape {
+    display: none;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include landscape {
+    .Container {
+      display: none;
+    }
+
+    .Landscape {
+      display: flex;
+    }
+  }
+}
+
+.LogoutGame {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  svg {
+    width: calc(2vw + 1rem);
+    height: calc(2vw + 1rem);
+
+    @include small-tablet {
+      width: calc(1vw + 2rem);
+      height: calc(1vw + 2rem);
+    }
+  }
+}
+
+.ParticipantsCount {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  gap: 5px;
+  transition: opacity 2s;
+  opacity: 1;
+  font-size: 15px;
+
+  p {
+    margin: auto;
+  }
+
+  svg {
+    width: calc(2vw + 1rem);
+    height: calc(2vw + 1rem);
+
+    @include small-tablet {
+      width: calc(1vw + 2rem);
+      height: calc(1vw + 2rem);
+    }
+  }
+}
+
+.NoneContent {
+  opacity: 0;
+}
+
+.Container {
+  padding: 12% 10px;
+  height: 100%;
+  text-align: center;
+
+  @include mobile {
+    padding: 50px 10px;
+  }
+}
+
+.TextModal {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-40%, -50%);
+  background-color: $color-white;
+  padding: 20px;
+}
+
+.TeamName {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
