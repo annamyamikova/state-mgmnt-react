@@ -1,49 +1,50 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from "react-redux";
-import Room from "./Room";
-import { Tabs } from "antd";
+import { connect } from 'react-redux';
+import { Tabs } from 'antd';
+import Room from './Room';
 import {
   addMsgToRoomAction,
   addRoomAction,
-  addUsersToRoomAction, clearRooms,
+  addUsersToRoomAction,
+  clearRooms,
 } from 'actions/ChatActions';
-import TabModalAction from "containers/TabModalAction";
+import TabModalAction from 'containers/TabModalAction';
 const { TabPane } = Tabs;
 
-const ChatRooms = (props) => {
-  const [activeKey, setActiveKey] = useState(Object.keys(props.rooms)[0]);
+const ChatRooms = ({rooms, socket, history, userName, room, addMessageToRoom, addUsersToRoom, clearRooms, addRoom}) => {
+  const [activeKey, setActiveKey] = useState(Object.keys(rooms)[0]);
 
   useEffect(() => {
-    if (props.socket === null) {
-      props.history.push("/");
+    if (socket === null) {
+      history.push("/");
       return;
     }
 
-    props.socket.on('get_new_msg', msgDate => {
+    socket.on('get_new_msg', msgDate => {
       if(msgDate != null){
-        props.addMessageToRoom(msgDate.messages, msgDate.room);
+        addMessageToRoom(msgDate.messages, msgDate.room);
       }
     });
 
-    props.socket.on('rooms', rooms => {
+    socket.on('rooms', rooms => {
       if(rooms != null) {
-        props.clearRooms();
+        clearRooms();
         rooms.forEach((room) =>{
-          props.addRoom(room);
+          addRoom(room);
         });
         setActiveKey('public');
       }
     });
 
-    props.socket.emit('get_rooms', props.userName);
+    socket.emit('get_rooms', userName);
 
-    props.socket.on('get_users_in_room', roomData => {
-      props.addUsersToRoom(roomData.users, roomData.room)
+    socket.on('get_users_in_room', roomData => {
+      addUsersToRoom(roomData.users, room)
     });
   },[]);
 
   const sendMsg = (values, roomName) => {
-    props.socket.emit('send_new_msg', {msg: values.inputMsg, roomName: roomName});
+    socket.emit('send_new_msg', {msg: values.inputMsg, roomName: roomName});
   };
 
   const onChange = activeKey => {
@@ -52,7 +53,7 @@ const ChatRooms = (props) => {
 
   const onEdit = (targetKey, action) => {
     if(action === 'remove') {
-      props.socket.emit('close_room', targetKey);
+      socket.emit('close_room', targetKey);
     }
   };
 
@@ -60,20 +61,19 @@ const ChatRooms = (props) => {
     <div>
       <Tabs
         hideAdd
-        tabBarExtraContent={<TabModalAction socket={props.socket}/>}
+        tabBarExtraContent={<TabModalAction socket={socket}/>}
         onChange={onChange}
         activeKey={activeKey}
         type="editable-card"
         onEdit={onEdit}
       >
 
-        {Object.keys(props.rooms).map(key => (
+        {Object.keys(rooms).map(key => (
           <TabPane tab={key} key={key} closable={key !=='public'} >
-            <Room messages={props.rooms[key].messages} users={props.rooms[key].users} sendMsg={sendMsg} name={key}/>
+            <Room messages={rooms[key].messages} users={rooms[key].users} sendMsg={sendMsg} name={key}/>
           </TabPane>
         ))}
       </Tabs>
-
     </div>
   )
 };

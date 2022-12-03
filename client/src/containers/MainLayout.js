@@ -8,7 +8,7 @@ const MainLayout = () => {
   return (
     <Fragment>
       <Switch>
-        {routes.map((route, index) => {
+        {routes.map((route) => {
           return route.Component ? (
             <Route
               key={route.Component}
@@ -22,6 +22,5 @@ const MainLayout = () => {
     </Fragment>
   )
 };
-
 
 export default MainLayout;
